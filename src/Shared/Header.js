@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     const menuItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/purchase'>Purchase</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/login'>Login</Link></li>
+        <li><NavLink style={({ isActive }) => isActive ? {color: 'red'} : undefined} to='/'>Home</NavLink></li>
+        <li><NavLink style={({ isActive }) => isActive ? {color: 'red'} : undefined} to='/purchase'>Purchase</NavLink></li>
+        <li><NavLink style={({ isActive }) => isActive ? {color: 'red'} : undefined} to='/blog'>Blog</NavLink></li>
+        <li><NavLink style={({ isActive }) => isActive ? {color: 'red'} : undefined} to='/login'>Login</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -19,7 +19,7 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl">Raiyan Auto Accessories</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
