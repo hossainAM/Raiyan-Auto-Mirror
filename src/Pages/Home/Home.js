@@ -1,8 +1,15 @@
 import React from 'react';
+import Banner from './Banner';
+import BusinessSummary from './BusinessSummary';
+import Items from './Items';
 
 const Home = () => {
     return (
-        <h2>This is Home page</h2>
+        <div>
+            <Banner></Banner>
+            <Items></Items>
+            <BusinessSummary></BusinessSummary>
+        </div>
     );
 };
 

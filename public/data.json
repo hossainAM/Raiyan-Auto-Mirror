@@ -1,0 +1,30 @@
+
+[
+    {
+        "id": 1,
+        "name": "Bolero New Side Mirror",
+        "image": "https://i.ibb.co/JFxDXWq/side-mirror-3.png",
+        "description": "Being a popular entity, we are providing an inclusive series of Bolero Car Side View Mirror. Our range is extensively employed by our customers owing to high strength and longer life service.",
+        "minimumOrderQuantity": 100,
+        "AvailableZuantity": 12000,
+        "UnitPrice": 10000
+    },
+    {
+        "id": 2,
+        "name": "Scorpio Inside Mirror",
+        "image": "https://i.ibb.co/CP7ymvy/inner-mirror.png",
+        "description": "100 percent new designed to increase visibility and improve driving safety effectively expand visual angle adjustable 180-degree mirror rotation for different traffics. Car side rear view mirrors which are life saver. Genuine quality, perfect fitting, direct replacement, black color only.",
+        "minimumOrderQuantity": 100,
+        "AvailableQuantity": 15000,
+        "UnitPrice": 5000
+    },
+    {
+        "id": 3,
+        "name": "Innova Sub Mirror Plate",
+        "image": "https://i.ibb.co/yBgMvr7/sub-mirror-plate.png",
+        "description": "Replacement for your broken rear view glass, placed inside the car's side mirror No need to change the entire side mirror if the  glass breaks, just change the plate/glass in it(as show in image). Accurate fitting. ",
+        "minimumOrderQuantity": 3000,
+        "AvailableQuantity": 40000,
+        "UnitPrice": 450
+    }
+]
