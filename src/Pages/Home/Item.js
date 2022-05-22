@@ -1,18 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Item = ({item}) => {
-    const {image, name, description, minimumOrderQuantity, AvailableQuantity, UnitPrice}= item;
+    const {_id, image, name, description, minimumOrderQuantity, AvailableQuantity, UnitPrice}= item;
+     const navigate = useNavigate();
+
+     const handleItemDetail = id => {
+         navigate(`/purchase/${id}`);
+     }
     return (
-       <div class="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
+       <div className="card card-compact lg:max-w-lg bg-base-100 shadow-xl">
             <figure><img src={image} alt="Shoes" /></figure>
-            <div class="card-body">
-                <h2 class="card-title">{name}</h2>
+            <div className="card-body">
+                <h2 className="card-title">{name}</h2>
                 <p>{description}</p>
                 <p><small>Unit Price: BDT </small><small>{UnitPrice}</small></p>
                 <p><small>Minimum Order Quantity: </small><small>{minimumOrderQuantity}</small></p>
                 <p><small>Available Quantity: </small><small>{AvailableQuantity}</small></p>
-                <div class="card-actions justify-end pt-4">
-                <button class="btn btn-primary">Purchase</button>
+                <div className="card-actions justify-end pt-4">
+                <button onClick={() => handleItemDetail(_id)} className="btn btn-primary">Purchase</button>
                 </div>
             </div>
         </div>

@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     const menuItems = <>
-        <li><NavLink style={({ isActive }) => isActive ? {color: 'red'} : undefined} to='/'>Home</NavLink></li>
-        <li><NavLink style={({ isActive }) => isActive ? {color: 'red'} : undefined} to='/purchase'>Purchase</NavLink></li>
-        <li><NavLink style={({ isActive }) => isActive ? {color: 'red'} : undefined} to='/blog'>Blog</NavLink></li>
-        <li><NavLink style={({ isActive }) => isActive ? {color: 'red'} : undefined} to='/login'>Login</NavLink></li>
+        <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/'>Home</NavLink></li>
+        <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/purchase'>Purchase</NavLink></li>
+        <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/blog'>Blog</NavLink></li>
+        <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/login'>Login</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">
