@@ -1,12 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import auth from '../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+
+    const handleSignOut = () => {
+         signOut(auth);
+    }
+
     const menuItems = <>
         <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/'>Home</NavLink></li>
         <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/purchase'>Purchase</NavLink></li>
         <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/blog'>Blog</NavLink></li>
+        {user ? 
+        <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} onClick={handleSignOut} to='/login'>Logout</NavLink></li>
+        :
         <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/login'>Login</NavLink></li>
+        }
     </>
     return (
         <div className="navbar bg-base-100">

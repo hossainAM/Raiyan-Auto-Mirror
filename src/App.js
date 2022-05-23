@@ -8,6 +8,7 @@ import NotFound from '../src/Pages/NotFound/NotFound'
 import Header from './Shared/Header'
 import SignUp from './Pages/Login/SignUp'
 import ItemDetails from './Pages/Home/ItemDetails'
+import { Toaster } from 'react-hot-toast';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
+      <Toaster></Toaster>
     </div>
   )
 }
