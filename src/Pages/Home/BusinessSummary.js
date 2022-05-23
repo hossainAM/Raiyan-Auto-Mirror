@@ -1,9 +1,10 @@
 import React from 'react';
 
 const BusinessSummary = () => {
+  
     return (
        <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-12 py-20 mx-auto">
             <div className="text-center mb-20">
             <h1 className="sm:text-3xl text-2xl font-bold title-font text-primary mb-4">THE FINAL SEARCH FOR THE WORLD'S FINEST AUTOMOTIVE REARVIEW MIRROR</h1>
             <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-neutral">WORLD WIDE CUSTOMERS TRUST US</p>
@@ -60,7 +61,6 @@ const BusinessSummary = () => {
                 </div>
             </div>
             </div>
-            <button className="flex mx-auto mt-16 text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Get Started</button>
         </div>
     </section>
     );

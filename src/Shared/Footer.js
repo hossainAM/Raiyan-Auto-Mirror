@@ -5,7 +5,7 @@ const Footer = () => {
         <>
         <footer class="footer p-10 bg-neutral text-base-content">
             <div>
-                <span class="footer-title text-base-100">Products</span> 
+                <span class="footer-title text-secondary">Products</span> 
                 <a class="text-base-100 link link-hover ">Side Mirror</a> 
                 <a class="text-base-100 link link-hover">Inside Mirror</a> 
                 <a class="text-base-100 link link-hover">Sub mirror plate</a> 
@@ -17,7 +17,7 @@ const Footer = () => {
                 <a class="text-base-100 link link-hover">Interior Mirror</a>
             </div>
             <div>
-                <span class="text-base-100 footer-title">Company</span> 
+                <span class="text-secondary footer-title">Company</span> 
                 <a class="text-base-100 link link-hover">News</a> 
                 <a class="text-base-100 link link-hover">FAQ</a> 
                 <a class="text-base-100 link link-hover">E-Catalog</a> 

@@ -18,7 +18,7 @@ const Item = ({item}) => {
                 <p><small>Minimum Order Quantity: </small><small>{minimumOrderQuantity}</small></p>
                 <p><small>Available Quantity: </small><small>{AvailableQuantity}</small></p>
                 <div className="card-actions justify-end pt-4">
-                <button onClick={() => handleItemDetail(_id)} className="btn btn-primary">Purchase</button>
+                <button onClick={() => handleItemDetail(_id)} className="btn btn-primary text-white">Purchase</button>
                 </div>
             </div>
         </div>
