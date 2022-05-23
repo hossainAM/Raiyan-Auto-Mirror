@@ -2,6 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
+        // need to change images
        <div className="carousel w-full mt-12">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src="https://api.lorem.space/image/car?w=800&h=200&hash=8B7BCDC2" className="w-full"/> / 
