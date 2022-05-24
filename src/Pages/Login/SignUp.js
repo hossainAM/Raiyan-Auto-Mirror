@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../Pages/Login/Login.css'
 import Loader from '../../Shared/Loader/Loader'
 import toast from 'react-hot-toast';
+import useToken from '../../Hooks/useToken';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -19,6 +20,8 @@ const SignUp = () => {
         sendEmailVerification: true,
     }); 
 
+    const [token] = useToken(user);
+
     //update profile
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -30,7 +33,7 @@ const SignUp = () => {
         errorMessage =  <p className='text-red-500'>Error: {error?.message} || {updateError?.message}</p>
     }
 
-    if(user) {
+    if(token) {
         navigate('/');
     }
 

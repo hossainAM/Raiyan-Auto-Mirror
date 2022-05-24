@@ -1,6 +1,6 @@
 import { sendPasswordResetEmail } from 'firebase/auth';
 import React, { useEffect, useRef } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -30,10 +30,10 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         await signInWithEmailAndPassword(email, password);
-         const {
-            data
-        } = await axios.post('http://localhost:5000/login', {email});
-        localStorage.setItem('accessToken', data.accessToken);
+        //  const {
+        //     data
+        // } = await axios.post('http://localhost:5000/login', {email});
+        // localStorage.setItem('accessToken', data.accessToken);
 
         //clear field
         emailRef.current.value = '';

@@ -3,10 +3,22 @@ import auth from '../../firebase.init';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useNavigate } from 'react-router-dom';
 import Loader from '../../Shared/Loader/Loader';
+import useToken from '../../Hooks/useToken';
+// import axios from 'axios';
 
 const SocialLogin = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    const navigate = useNavigate();
+    const [signInWithGoogle, gUser, loading, error] = useSignInWithGoogle(auth);
+    const navigate = useNavigate()
+
+    const handleGoogleLogin = async () => {
+        await signInWithGoogle();
+        // const {
+        //     data
+        // } = await axios.post('http://localhost:5000/login');
+        // localStorage.setItem('accessToken', data.accessToken);
+    }
+
+      const [token] = useToken(gUser);
 
     let errorMessage;
      if(error) {
@@ -17,14 +29,14 @@ const SocialLogin = () => {
          return <Loader></Loader>
      }
 
-    if (user) {
+    if (token) {
         navigate('/')
     }
     return (
         <>
          <h1 className='text-center mb-2'>.................Or.................</h1>
          <div className='flex justify-center mb-3'>
-			<button onClick={() => signInWithGoogle()} className="bg-secondary hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+			<button onClick={handleGoogleLogin} className="bg-secondary hover:bg-orange-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
 			Login with Google
 		    </button>
 		 </div>
