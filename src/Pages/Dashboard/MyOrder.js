@@ -26,9 +26,9 @@ const MyOrder = () => {
                 return res.json();
             })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setOrders(data);
-            })
+            });
         }
     }, [user, navigate]);
 
@@ -58,6 +58,8 @@ const MyOrder = () => {
                                 <td>{order.product}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.price}</td>
+                                <td>{<button className="btn btn-xs btn-primary">Pay</button>}</td>
+                                <td>{<button className="btn btn-xs btn-accent">Cancel</button>}</td>
                             </tr>)
                         }
                     </tbody>

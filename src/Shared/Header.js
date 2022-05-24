@@ -9,7 +9,8 @@ const Header = () => {
 
     const handleSignOut = () => {
          signOut(auth);
-    }
+         localStorage.removeItem('accessToken');
+    };
 
     const menuItems = <>
         <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/'>Home</NavLink></li>

@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../Pages/Login/Login.css'
 import Loader from '../../Shared/Loader/Loader'
 import toast from 'react-hot-toast';
-import useToken from '../../Hooks/useToken';
+// import useToken from '../../Hooks/useToken';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -20,7 +20,7 @@ const SignUp = () => {
         sendEmailVerification: true,
     }); 
 
-    const [token] = useToken(user);
+    // const [token] = useToken(user);
 
     //update profile
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
@@ -33,7 +33,7 @@ const SignUp = () => {
         errorMessage =  <p className='text-red-500'>Error: {error?.message} || {updateError?.message}</p>
     }
 
-    if(token) {
+    if(user) {
         navigate('/');
     }
 
@@ -56,15 +56,6 @@ const SignUp = () => {
         <div className='contentWrapper'>
            <div className='formWrapper'>
             <div className='containerForm logIn'>
-                {/* <form action="#">
-                    <h2 className='title text-center text-2xl mb-2 font-base text-neutral'>Sign Up</h2>
-                    <input type="text" className='input' placeholder='User' />
-                    <input type="email" className='input' placeholder='Email' />
-                    <input type="password" className='input' placeholder='Password' />
-                    <p className='text-center mt-2'>Forgot Password? <button className='btn btn-link '>Reset Password</button></p>
-                    <button className='button block mx-auto'>Sign Up</button>
-                    <p className='text-center mt-2'>Already have an account? <Link to="/login" className='btn btn-link'>Log In</Link></p>
-                </form> */}
                 <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">

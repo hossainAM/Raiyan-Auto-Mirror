@@ -30,10 +30,6 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         await signInWithEmailAndPassword(email, password);
-        //  const {
-        //     data
-        // } = await axios.post('http://localhost:5000/login', {email});
-        // localStorage.setItem('accessToken', data.accessToken);
 
         //clear field
         emailRef.current.value = '';
@@ -75,19 +71,19 @@ const Login = () => {
 
     return (
        <div className='contentWrapper'>
-            <div className='formWrapper'>
-        <div className='containerForm logIn'>
-            <form onSubmit={handleLogin} action="#">
-                <h2 className='title text-center text-2xl mb-2 font-base text-neutral'>Log In</h2>
-                <input ref={emailRef} type="email" className='input' placeholder='Email' />
-                <input ref={passwordRef} type="password" className='input' placeholder='Password' />
-                <p className='text-center mt-2'>Forgot Password? <button onClick={handlePasswordReset} className='btn btn-link '>Reset Password</button></p>
-                <button className='button block mx-auto'>Log In</button>
-                <p className='text-center mt-2'>Don't have an account? <Link to="/signup" onClick={handleSignUp} className='btn btn-link'>Sign Up</Link></p>
-            </form>
-            <SocialLogin></SocialLogin>
-            <p className='text-red-500 text-center'>{errorMessage}</p>
-        </div>
+        <div className='formWrapper'>
+            <div className='containerForm logIn'>
+                <form onSubmit={handleLogin} action="#">
+                    <h2 className='title text-center text-2xl mb-2 font-base text-neutral'>Log In</h2>
+                    <input ref={emailRef} type="email" className='input' placeholder='Email' />
+                    <input ref={passwordRef} type="password" className='input' placeholder='Password' />
+                    <p className='text-center mt-2'>Forgot Password? <button onClick={handlePasswordReset} className='btn btn-link '>Reset Password</button></p>
+                    <button className='button block mx-auto'>Log In</button>
+                    <p className='text-center mt-2'>Don't have an account? <Link to="/signup" onClick={handleSignUp} className='btn btn-link'>Sign Up</Link></p>
+                </form>
+                <SocialLogin></SocialLogin>
+                <p className='text-red-500 text-center'>{errorMessage}</p>
+            </div>
         </div>
        </div>
     );

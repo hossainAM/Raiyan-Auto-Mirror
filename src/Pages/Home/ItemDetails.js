@@ -10,7 +10,7 @@ const ItemDetails = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        const url = `https://desolate-harbor-05396.herokuapp.com/item/${id}`
+        const url = `http://localhost:5000/item/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))

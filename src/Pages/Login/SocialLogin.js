@@ -4,7 +4,6 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useNavigate } from 'react-router-dom';
 import Loader from '../../Shared/Loader/Loader';
 import useToken from '../../Hooks/useToken';
-// import axios from 'axios';
 
 const SocialLogin = () => {
     const [signInWithGoogle, gUser, loading, error] = useSignInWithGoogle(auth);
@@ -12,10 +11,6 @@ const SocialLogin = () => {
 
     const handleGoogleLogin = async () => {
         await signInWithGoogle();
-        // const {
-        //     data
-        // } = await axios.post('http://localhost:5000/login');
-        // localStorage.setItem('accessToken', data.accessToken);
     }
 
       const [token] = useToken(gUser);

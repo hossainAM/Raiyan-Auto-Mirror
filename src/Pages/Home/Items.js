@@ -4,7 +4,11 @@ import Loader from '../../Shared/Loader/Loader'
 import Item from './Item';
 
 const Items = () => {
-    const {data: items, isLoading, refetch} = useQuery('mirrors', () => fetch('https://desolate-harbor-05396.herokuapp.com/item').then(res => res.json()));
+    const {
+        data: items,
+        isLoading,
+        refetch
+    } = useQuery('mirrors', () => fetch('http://localhost:5000/item').then(res => res.json()));
 
     if(isLoading) {
         return <Loader></Loader>
