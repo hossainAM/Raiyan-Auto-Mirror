@@ -41,19 +41,10 @@ const Purchase = () => {
         .then(data => {
             // console.log(data)
             if(data.success) {
-                toast.success('Order placed successfully!')
+                toast('Order placed successfully!')
             }
-            else{
-                toast.error('Please place your order correctly')
-            }
-        });
+        });//toast is not working correctly
     }
-
-    //Increase order quantity
-    // const handleIncrease = () => {
-
-    // }
-
 
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 p-12'>
@@ -90,10 +81,6 @@ const Purchase = () => {
                     <input className='btn btn-primary py-2 w-100 mt-3 mr-4' type="submit" value="Place Order"/>
                 </div>
             </form>
-                {/* <div className='flex justify-center'>
-                    <button onClick={handleIncrease} className='btn btn-secondary mt-3 mr-4'>Increase</button>
-                    <button className='btn btn-accent mt-3'>Decrease</button>
-                </div> */}
             </div>
         </div>
     );
