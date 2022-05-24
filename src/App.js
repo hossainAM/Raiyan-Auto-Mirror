@@ -6,9 +6,13 @@ import Login from '../src/Pages/Login/Login'
 import NotFound from '../src/Pages/NotFound/NotFound'
 import Header from './Shared/Header'
 import SignUp from './Pages/Login/SignUp'
-import ItemDetails from './Pages/Home/ItemDetails'
 import { Toaster } from 'react-hot-toast';
 import RequireAuth from './Pages/Login/RequireAuth'
+import Purchase from './Pages/Purchase/Purchase'
+import Dashboard from './Pages/Dashboard/Dashboard'
+import MyOrder from './Pages/Dashboard/MyOrder'
+import AddReview from './Pages/Dashboard/AddReview'
+import MyProfile from './Pages/Dashboard/MyProfile'
 
 
 const App = () => {
@@ -18,8 +22,15 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/purchase/:id' element={<RequireAuth>
-          <ItemDetails/>
+          <Purchase/>
         </RequireAuth>}/>
+        <Route path='/dashboard' element={<RequireAuth>
+          <Dashboard/>
+        </RequireAuth>}>
+          <Route index element={<MyOrder/>}/>
+          <Route path='addreview' element={<AddReview/>}/>
+          <Route path='profile' element={<MyProfile/>}/>
+        </Route>
         <Route path='/blog' element={<Blog/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
