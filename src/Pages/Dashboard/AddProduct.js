@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import toast from 'react-hot-toast';
 
 const AddProduct = () => {
        const nameRef = useRef();
@@ -26,12 +27,29 @@ const AddProduct = () => {
         fetch(url, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(newProduct)
         })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                toast.success('Product added successfully');
+            }
+            else{
+                toast.error('Failed to add product')
+            }
+        });
+
+        //Clear input filed
+        nameRef.current.value='';
+        descRef.current.value='';
+        priceRef.current.value='';
+        orderRef.current.value='';
+        quantityRef.current.value='';
+        imgRef.current.value='';
     }
 
     return (
