@@ -17,6 +17,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin'
 import AddProduct from './Pages/Dashboard/AddProduct'
 import ManageProducts from './Pages/Dashboard/ManageProducts'
 import ManageOrders from './Pages/Dashboard/ManageOrders'
+import MyPortfolio from '../src/Pages/MyPortfolio/MyPortfolio'
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
           <Route path='manageorder' element={<ManageOrders/>}/>
         </Route>
         <Route path='/blog' element={<Blog/>}/>
+        <Route path='/portfolio' element={<MyPortfolio/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='*' element={<NotFound/>}/>

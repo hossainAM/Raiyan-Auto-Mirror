@@ -16,6 +16,7 @@ const Header = () => {
         <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/'>Home</NavLink></li>
         <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/dashboard'>Dashboard</NavLink></li>
         <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/blog'>Blog</NavLink></li>
+        <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} to='/portfolio'>My Portfolio</NavLink></li>
         {user ? 
         <li><NavLink style={({ isActive }) => isActive ? {color: '#f6d860'} : undefined} onClick={handleSignOut} to='/login'>Logout</NavLink></li>
         :

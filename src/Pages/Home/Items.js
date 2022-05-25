@@ -18,7 +18,7 @@ const Items = () => {
             <h2 className='text-3xl text-center text-primary font-bold uppercase my-20'>Featured Products</h2>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-12'>
                 {
-                    items.slice(0,3).map(item => <Item key={item._id} item={item}></Item>)
+                    items.slice(Math.max(items.length - 3, 0)).map(item => <Item key={item._id} item={item}></Item>)
                 }
             </div>
         </div>
