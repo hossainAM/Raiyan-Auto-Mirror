@@ -11,7 +11,8 @@ const MyOrder = () => {
 
     useEffect(() => {
         if(user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
+            const url = `http://localhost:5000/order?email=${user.email}`;
+            fetch(url, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,14 +20,13 @@ const MyOrder = () => {
             })
             .then(res => {
                 if(res.status === 401 || res.status === 403) {
-                    signOut(auth);
                     localStorage.removeItem('accessToken');
+                    signOut(auth);
                     navigate('/');
                 }
                 return res.json();
             })
             .then(data => {
-                // console.log(data);
                 setOrders(data);
             });
         }

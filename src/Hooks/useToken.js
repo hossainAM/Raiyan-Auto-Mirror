@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 
 const useToken = user => {
     const [token, setToken] = useState('');
-    // console.log(user);
     const email = user?.user?.email;
-    const currentuser = {email: email};
+    const currentUser = {email: email};
+    // console.log(currentUser);
 
     useEffect(() => {
         if(email) {
@@ -13,7 +13,7 @@ const useToken = user => {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(currentuser)
+                body: JSON.stringify(currentUser)
             })
             .then(res => res.json())
             .then(data => {
@@ -24,7 +24,7 @@ const useToken = user => {
                 setToken(accessToken);
             })
         }
-    }, [currentuser, email]);
+    }, [currentUser, email]);
 
     return [token];
 }

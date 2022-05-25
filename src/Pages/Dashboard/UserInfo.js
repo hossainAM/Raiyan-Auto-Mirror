@@ -1,8 +1,12 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const UserInfo = ({user, index, refetch}) => {
     const {email, role} = user;
+    const navigate = useNavigate();
 
     const handleAdmin = () => {
         const url = `http://localhost:5000/user/admin/${email}`
@@ -12,10 +16,20 @@ const UserInfo = ({user, index, refetch}) => {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
-        .then(res => res.json())
+        .then(res => {
+            if(res.status === 403){
+                toast.error('Failed to make an admin');
+                localStorage.removeItem('accessToken');
+                signOut(auth);
+                navigate('/');
+            }
+            return res.json()
+        })
         .then(data => {
-            refetch();
-            toast('Made an admin successfully');
+            if(data.modifiedCount > 0) {
+                 refetch();
+                 toast.success('Made an admin successfully');
+            }
         })
     }
 

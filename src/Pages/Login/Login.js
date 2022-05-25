@@ -8,6 +8,7 @@ import Loader from '../../Shared/Loader/Loader';
 import './Login.css'
 import SocialLogin from './SocialLogin';
 import toast from 'react-hot-toast';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -21,6 +22,8 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [token] = useToken(user);
 
     let from = location.state?.from?.pathname || "/";
 
@@ -37,12 +40,12 @@ const Login = () => {
     }
 
     useEffect(() => {
-       if (user) {
+       if (token) {
            navigate(from, {
                replace: true
            });
        }
-   }, [from, navigate, user])
+   }, [from, navigate, token])
 
     if(loading) {
        return <Loader></Loader>
