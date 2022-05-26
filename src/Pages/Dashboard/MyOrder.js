@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { Link } from 'react-router-dom'
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
@@ -58,8 +59,14 @@ const MyOrder = () => {
                                 <td>{order.product}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.price}</td>
-                                <td>{<button className="btn btn-xs btn-primary">Pay</button>}</td>
-                                <td>{<button className="btn btn-xs btn-accent">Cancel</button>}</td>
+                                <td>
+                                    {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className="btn btn-xs btn-primary">Pay</button></Link>}
+                                    {(order.price && order.paid) && <div>
+                                            <p><span className="text-primary">Paid</span></p>
+                                            <p><span className="text-secondary">{order.transactionId}</span></p>
+                                        </div>}
+                                </td>
+                                <td>{!order.paid && <button className="btn btn-xs btn-secondary">Cancel</button>}</td>
                             </tr>)
                         }
                     </tbody>
@@ -70,3 +77,5 @@ const MyOrder = () => {
 };
 
 export default MyOrder;
+
+// (order.price && order.paid) && <link to={``}>

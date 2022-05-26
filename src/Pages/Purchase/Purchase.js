@@ -26,7 +26,7 @@ const Purchase = () => {
             address: e.target.address.value,
             phone: e.target.phone.value,
             product: item.name,
-            price: item.UnitPrice,
+            price: item.price,
             quantity: e.target.itemQuantity.value,
         }
 
@@ -54,7 +54,7 @@ const Purchase = () => {
                 <div className="card-body">
                     <h2 className="card-title">{item.name}</h2>
                     <p>{item.description}</p>
-                    <p><small>Unit Price: BDT </small><small>{item.UnitPrice}</small></p>
+                    <p><small>Unit Price: BDT </small><small>{item.price}</small></p>
                     <p><small>Minimum Order Quantity: </small><small>{item.minimumOrderQuantity}</small></p>
                     <p><small>Available Quantity: </small><small>{item.AvailableQuantity}</small></p>
                 </div>
@@ -73,7 +73,9 @@ const Purchase = () => {
                 <br/>
                 <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="text" name="itemName" value={item.name} placeholder='Service Name' readOnly/>
                 <br/>
-                <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="number" name="price" value={item.UnitPrice} placeholder='Unit Price' readOnly/>
+                <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="number" name="itemName" value={item.price} placeholder='Price' readOnly/>
+                <br/>
+                <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="number" name="price" value={item.AvailableQuantity} placeholder='Unit Price' readOnly/>
                 <br/>
                 <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="number" name="itemQuantity" placeholder={item.minimumOrderQuantity}/>
                 <br/>

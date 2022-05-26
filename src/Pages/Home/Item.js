@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Item = ({item}) => {
-    const {_id, image, name, description, minimumOrderQuantity, AvailableQuantity, UnitPrice}= item;
+    const {_id, image, name, description, minimumOrderQuantity, AvailableQuantity, price}= item;
      const navigate = useNavigate();
 
      const handleItemDetail = id => {
@@ -14,7 +14,7 @@ const Item = ({item}) => {
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p>{description}</p>
-                <p><small>Unit Price: BDT </small><small>{UnitPrice}</small></p>
+                <p><small>Unit Price: BDT </small><small>{price}</small></p>
                 <p><small>Minimum Order Quantity: </small><small>{minimumOrderQuantity}</small></p>
                 <p><small>Available Quantity: </small><small>{AvailableQuantity}</small></p>
                 <div className="card-actions justify-end pt-4">
