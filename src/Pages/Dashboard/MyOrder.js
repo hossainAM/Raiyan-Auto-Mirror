@@ -14,7 +14,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         if(user) {
-            const url = `http://localhost:5000/order?email=${user.email}`;
+            const url = `https://desolate-harbor-05396.herokuapp.com/order?email=${user.email}`;
             fetch(url, {
                 method: 'GET',
                 headers: {

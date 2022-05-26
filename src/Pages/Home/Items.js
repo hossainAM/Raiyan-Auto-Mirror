@@ -7,7 +7,7 @@ const Items = () => {
     const {
         data: items,
         isLoading,
-    } = useQuery('mirrors', () => fetch('http://localhost:5000/item').then(res => res.json()));
+    } = useQuery('mirrors', () => fetch('https://desolate-harbor-05396.herokuapp.com/item').then(res => res.json()));
 
     if(isLoading) {
         return <Loader></Loader>

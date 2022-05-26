@@ -23,7 +23,7 @@ const AddProduct = () => {
         }
 
         //post new product to server 
-        const url = `http://localhost:5000/item`
+        const url = `https://desolate-harbor-05396.herokuapp.com/item`
         fetch(url, {
             method: 'POST',
             headers: {

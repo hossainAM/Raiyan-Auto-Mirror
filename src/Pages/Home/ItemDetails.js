@@ -10,7 +10,7 @@ const ItemDetails = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        const url = `http://localhost:5000/item/${id}`
+        const url = `https://desolate-harbor-05396.herokuapp.com/item/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))
@@ -30,7 +30,7 @@ const ItemDetails = () => {
             quantity: e.target.itemQuantity.value,
         }
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://desolate-harbor-05396.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

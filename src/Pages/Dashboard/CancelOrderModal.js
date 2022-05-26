@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 const CancelOrderModal = ({orderCancelModal, setOrderCancelModal }) => {
     const {_id, product} = orderCancelModal;
     const handleCancel = () => {
-           fetch(`http://localhost:5000/order/${_id}`, {
+           fetch(`https://desolate-harbor-05396.herokuapp.com/order/${_id}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

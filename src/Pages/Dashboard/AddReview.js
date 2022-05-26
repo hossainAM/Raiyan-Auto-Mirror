@@ -21,7 +21,7 @@ const AddReview = () => {
         }
 
          //post new product to server 
-        const url = `http://localhost:5000/review`
+        const url = `https://desolate-harbor-05396.herokuapp.com/review`
         fetch(url, {
             method: 'POST',
             headers: {

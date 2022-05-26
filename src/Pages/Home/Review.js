@@ -1,11 +1,7 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
 
 const Review = ({review}) => {
-    // console.log(review)
     const { rating, comment} = review;
-    const [user] = useAuthState(auth);
 
     return (
             <div class="h-full text-center">

@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 const RemoveModal = ({removeModal, refetch, setRemoveModal}) => {
     const {_id, name} = removeModal;
     const handleRemove = () => {
-        fetch(`http://localhost:5000/item/${_id}`, {
+        fetch(`https://desolate-harbor-05396.herokuapp.com/item/${_id}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -9,7 +9,7 @@ const UserInfo = ({user, index, refetch}) => {
     const navigate = useNavigate();
 
     const handleAdmin = () => {
-        const url = `http://localhost:5000/user/admin/${email}`
+        const url = `https://desolate-harbor-05396.herokuapp.com/user/admin/${email}`
         fetch(url, {
             method: 'PUT',
             headers: {
