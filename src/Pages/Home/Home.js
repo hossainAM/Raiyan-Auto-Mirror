@@ -5,6 +5,7 @@ import BusinessSummary from './BusinessSummary';
 import ContactUs from './ContactUs';
 import Items from './Items';
 import MiddleBanner from './MiddleBanner';
+import Reviews from './Reviews';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Items></Items>
             <MiddleBanner></MiddleBanner>
             <BusinessSummary></BusinessSummary>
+            <Reviews></Reviews>
             <ContactUs></ContactUs>
             <Footer></Footer>
         </div>

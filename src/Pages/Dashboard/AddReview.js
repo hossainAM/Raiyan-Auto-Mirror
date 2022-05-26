@@ -14,7 +14,10 @@ const AddReview = () => {
         const comment = descRef.current.value;
 
         const addReview = {
-            rating, comment
+            name: user.displayName,
+            email: user.email,
+            rating, 
+            comment
         }
 
          //post new product to server 
