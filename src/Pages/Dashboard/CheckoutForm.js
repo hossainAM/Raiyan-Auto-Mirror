@@ -73,7 +73,6 @@ const CheckoutForm = ({order}) => {
 
         if(intentError){
             setCardError(intentError?.message)
-            // success('');
             setProcessing(false);
         }
         else{
@@ -121,7 +120,7 @@ const CheckoutForm = ({order}) => {
                 },
                 }}
             />
-            <button type="submit" disabled={!stripe || !clientSecret}>
+            <button type="submit" className='btn btn-success btn-sm mt-4' disabled={!stripe || !clientSecret || success}>
                 Pay
             </button>
         </form>

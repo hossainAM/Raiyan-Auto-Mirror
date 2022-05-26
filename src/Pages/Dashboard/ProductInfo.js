@@ -18,5 +18,3 @@ const ProductInfo = ({product, index, setRemoveModal}) => {
 };
 
 export default ProductInfo;
-
-// trim(text).substring(0, lengthText).split(" ").slice(0, -1).join(" ") + "...";

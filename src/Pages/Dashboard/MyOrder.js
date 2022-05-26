@@ -1,12 +1,14 @@
 import { signOut } from 'firebase/auth';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import { Link } from 'react-router-dom'
+import CancelOrderModal from './CancelOrderModal';
+import OrderRow from './OrderRow';
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
+    const [orderCancelModal, setOrderCancelModal] = useState(null);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
@@ -31,7 +33,7 @@ const MyOrder = () => {
                 setOrders(data);
             });
         }
-    }, [user, navigate]);
+    }, [user, navigate, orders]);
 
     return (
         <div>
@@ -52,30 +54,18 @@ const MyOrder = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) => <tr key={index}>
-                                <th>{index  + 1}</th>
-                                <td>{order.name}</td>
-                                <td>{order.email}</td>
-                                <td>{order.product}</td>
-                                <td>{order.quantity}</td>
-                                <td>{order.price}</td>
-                                <td>
-                                    {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className="btn btn-xs btn-primary">Pay</button></Link>}
-                                    {(order.price && order.paid) && <div>
-                                            <p><span className="text-primary">Paid</span></p>
-                                            <p><span className="text-secondary">{order.transactionId}</span></p>
-                                        </div>}
-                                </td>
-                                <td>{!order.paid && <button className="btn btn-xs btn-secondary">Cancel</button>}</td>
-                            </tr>)
+                            
+                            orders.map((order, index) => <OrderRow key={order._id} index={index} order={order} setOrderCancelModal={setOrderCancelModal}></OrderRow>)
                         }
                     </tbody>
                 </table>
             </div>
+            {
+                orderCancelModal && <CancelOrderModal orderCancelModal={orderCancelModal} setOrderCancelModal={setOrderCancelModal}></CancelOrderModal>
+            }
         </div>
     );
 };
 
 export default MyOrder;
 
-// (order.price && order.paid) && <link to={``}>
