@@ -89,7 +89,7 @@ const MyProfile = () => {
     return (
         <div>
             <h2 className='text-xl text-secondary font-bold mb-4'>My Profile</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="">
                 <input type="text" placeholder="Name" className="input input-bordered w-full max-w-xs" name="name" value={user.displayName} autoComplete='off' required />
                 <br/>
                 <input type="text" placeholder="Email" className="input input-bordered w-full max-w-xs" name="email" value={user.email} autoComplete='off' required />

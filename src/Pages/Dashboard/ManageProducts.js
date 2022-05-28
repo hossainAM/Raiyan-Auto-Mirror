@@ -27,7 +27,7 @@ const ManageProducts = () => {
                         <th>Name</th>
                         <th>Min Order Quantity</th>
                         <th>Available Quantity</th>
-                        {/* <th>Unit Price</th> */}
+                        <th>Unit Price</th>
                         <th>Remove</th>
                     </tr>
                     </thead>

@@ -27,6 +27,7 @@ const ManageOrders = () => {
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Payment Status</th>
+                        <th>Cancel</th>
                     </tr>
                     </thead>
                     <tbody>

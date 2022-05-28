@@ -4,14 +4,14 @@
 	--primary: #a6039e;
 	--secondary: #4c2191;
 	/* SIZES */
-	--max-width: 758px;
-	--max-height: 600px;
+	--max-width: 700px;
+	--max-height: 650px;
 }
 
 .contentWrapper {
 	font-family: "Open Sans" , sans-serif;
 	align-items: center;
-	background: url("https://i.ibb.co/k6H0vwt/image.jpg");
+	background: url("https://i.ibb.co/k6H0vwt/image01.png");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -46,7 +46,7 @@
 	color: #FFF;
 	cursor: pointer;
 	font-weight: bold;
-	letter-spacing: 0.07rem;
+	letter-spacing: 0.04rem;
 	padding: 1rem 4rem;
 	text-transform: uppercase;
 	transition: all 300ms ease;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({order}) => {
-    const {_id, name, email, price} = order;
+    const {_id, name, email} = order;
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -18,17 +18,16 @@ const CheckoutForm = ({order}) => {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify({ price })
+            body: JSON.stringify(order) //
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 if (data?.clientSecret) {
                     setClientSecret(data.clientSecret);
                 }
             });
 
-    }, [price])
+    }, [order])
 
     const handleSubmit = async (e) => {
         e.preventDefault();

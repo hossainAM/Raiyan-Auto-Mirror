@@ -6,10 +6,10 @@ import image3 from '../../../src/assets/5.png'
 
 const Projects = () => {
     return (
-        <section className='mt-24 h-screen'>
+        <section className='mt-24 h-screen px-12'>
             <h1 className='text-5xl font-bold mb-12 tracking-wider text-center'>RECENTLY COMPLETED PROJECTS</h1>
-            <div className='grid grid-cols-1 sm:grid-cols-3 space-y-5'>
-                <div className="card w-96 glass">
+            <div className='grid grid-cols-1 gap-5 sm:grid-cols-3 space-y-5'>
+                <div className="card lg:mx-w-lg glass">
                     <figure><img src={image1} alt="car!"/></figure>
                     <div className="card-body">
                         <h2 className="card-title">Raiyan Auto Warehouse</h2>
@@ -19,7 +19,7 @@ const Projects = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card w-96 glass">
+                <div className="card lg:mx-w-lg glass">
                     <figure><img src={image2} alt="car!"/></figure>
                     <div className="card-body">
                         <h2 className="card-title">Nutrition By Ameera</h2>
@@ -29,7 +29,7 @@ const Projects = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card w-96 glass">
+                <div className="card lg:mx-w-lg glass">
                     <figure><img src={image3} alt="car!"/></figure>
                     <div className="card-body">
                         <h2 className="card-title">Health Simple</h2>

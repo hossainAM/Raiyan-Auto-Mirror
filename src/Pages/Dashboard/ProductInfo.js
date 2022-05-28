@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductInfo = ({product, index, setRemoveModal}) => {
-    const {name, minimumOrderQuantity, AvailableQuantity, UnitPrice} = product;
+    const {name, minimumOrderQuantity, AvailableQuantity, price} = product;
 
     return (
        <tr>
@@ -9,7 +9,7 @@ const ProductInfo = ({product, index, setRemoveModal}) => {
             <td>{name}</td>
             <td>{minimumOrderQuantity}</td>
             <td>{AvailableQuantity}</td>
-            {/* <td>{UnitPrice}</td> */}
+            <td>{price}</td>
             <td>
                 <label onClick={setRemoveModal(product)} for="remove-confirm-modal" className="btn btn-link">Remove</label>
             </td>

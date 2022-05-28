@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 
 const Purchase = () => {
     const [quantity, setQuantity] = useState(0);
+    const [error, setError] = useState('')
     const {id} = useParams();
     const [item, setItem] = useState({});
     const [user] = useAuthState(auth);
@@ -18,11 +19,20 @@ const Purchase = () => {
     }, [id]); 
 
     //Order Quantity
-    // const handleChange = (e) => {
-    //     const quantity = e.target.value;
-  
-    //     setQuantity(e.target.value);
-    // }
+    const handleChange = (e) => {
+        const quantity = parseInt(e.target.value);
+        console.log(quantity)
+        const minQuantity = parseInt(item.minimumOrderQuantity);
+        const availableQuantity = parseInt(item.AvailableQuantity);
+        if(quantity < minQuantity) {
+            setError('Order quantity should be greater than minimum order quantity');
+        }
+        if (quantity > availableQuantity) {
+            setError('Order quantity should be less than available quantity');
+        }
+        // setError('');
+        setQuantity(quantity);
+    }
 
     //place order
     const handleOrderSubmit = e => {
@@ -34,8 +44,8 @@ const Purchase = () => {
             address: e.target.address.value,
             phone: e.target.phone.value,
             product: item.name,
-            price: item.price,
-            quantity: e.target.itemQuantity.value,
+            price: (item.price * quantity),
+            quantity: quantity,
         }
 
         fetch('https://desolate-harbor-05396.herokuapp.com/order', {
@@ -51,6 +61,11 @@ const Purchase = () => {
                 toast('Order placed successfully!')
             }
         });
+
+        //clear filed
+        e.target.address.value = '';
+        e.target.phone.value = '';
+        e.target.value = '';
     }
 
     return (
@@ -83,9 +98,14 @@ const Purchase = () => {
                 <label className='text-accent font-bold text-center mt-4' htmlFor="quantity">Order Quantity</label>
                 <br/>
                 <input onChange={handleChange} className='shadow appearance-none border rounded w-full py-2 mt-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="number" name="quantity" value={quantity}/>
+                <p className='text-red-500'>{error}</p>
                 <br/>
                 <div className='flex justify-center'>
-                    <input className='btn btn-primary py-2 w-100 mt-3 mr-4' type="submit" value="Place Order"/>
+                    {
+                    //    error ? <input className='btn btn-primary py-2 w-100 mt-3 mr-4' type="submit" value="Place Order" disabled={true}/>
+                    //    :
+                       <input className='btn btn-primary py-2 w-100 mt-3 mr-4' type="submit" value="Place Order"/>
+                    }
                 </div>
             </form>
             </div>

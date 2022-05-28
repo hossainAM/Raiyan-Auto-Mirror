@@ -57,6 +57,7 @@ const SignUp = () => {
            <div className='formWrapper'>
             <div className='containerForm logIn'>
                 <form onSubmit={handleSubmit(onSubmit)}>
+                    <h2 className='title text-center text-2xl mb-2 font-base text-neutral'>Sign Up</h2>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Name</span>
