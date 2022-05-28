@@ -30,7 +30,6 @@ const Purchase = () => {
         if (quantity > availableQuantity) {
             setError('Order quantity should be less than available quantity');
         }
-        // setError('');
         setQuantity(quantity);
     }
 
@@ -102,8 +101,8 @@ const Purchase = () => {
                 <br/>
                 <div className='flex justify-center'>
                     {
-                    //    error ? <input className='btn btn-primary py-2 w-100 mt-3 mr-4' type="submit" value="Place Order" disabled={true}/>
-                    //    :
+                       quantity < item.minimumOrderQuantity || quantity > item.AvailableQuantity ? <input className='btn btn-primary py-2 w-100 mt-3 mr-4' type="submit" value="Place Order" disabled/>
+                       :
                        <input className='btn btn-primary py-2 w-100 mt-3 mr-4' type="submit" value="Place Order"/>
                     }
                 </div>

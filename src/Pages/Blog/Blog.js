@@ -5,6 +5,7 @@ const Blog = () => {
     return (
         <>
         <section className="text-gray-600 body-font">
+            <h1 className='text-3xl text-center text-primary font-bold uppercase mt-20'>Frequently Asked Questions</h1>
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-wrap -m-4">
                     <div className="p-4 lg:w-1/3">
@@ -115,7 +116,7 @@ const Blog = () => {
                         <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
                         <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">You have an array of products. Each object has a name, price, description, etc. How will you implement a search to find products by name?</h1>
-                        <p className="leading-relaxed mb-3">The most common approach is to match the search object by unique property value, however, it would fail if two or more items have the same value. Simple “===” operator coupled with Array.find() will achieve a successful search operation. In the above example, productList has a property of “name” which is if unique to every object in the array can find objects from the array. </p>
+                        <p className="leading-relaxed mb-3">The most common approach is to match the search object by unique property value. It will return all the object with same property value. Simple “===” operator coupled with Array. filter() will achieve a successful search operation. In the above example, productList has a property of “name” can filter objects from the array. </p>
                         <a className="text-indigo-500 inline-flex items-center">Learn More
                             <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14"></path>

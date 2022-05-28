@@ -87,10 +87,11 @@ const MyProfile = () => {
     }
 
     return (
-        <div>
-            <h2 className='text-xl text-secondary font-bold mb-4'>My Profile</h2>
+        <div className='flex'>
+        <div className='m-auto'>
+            <h2 className='text-xl text-secondary text-center font-bold mb-4'>My Profile</h2>
             <form onSubmit={handleSubmit} className="">
-                <input type="text" placeholder="Name" className="input input-bordered w-full max-w-xs" name="name" value={user.displayName} autoComplete='off' required />
+                <input type="text" placeholder="Name" className="input input-bordered w-full  max-w-xs" name="name" value={user.displayName} autoComplete='off' required />
                 <br/>
                 <input type="text" placeholder="Email" className="input input-bordered w-full max-w-xs" name="email" value={user.email} autoComplete='off' required />
                 <br/>
@@ -104,9 +105,10 @@ const MyProfile = () => {
                 <br/>
                 <input ref={linkedRef} type="text" placeholder="Linkedin URL" className="input input-bordered w-full max-w-xs" name="linkedin" required />
                 <br/>
-                <input className='btn btn-secondary py-2 w-100 mt-3 mr-4' type="submit" value="Add Profile"/>
+                <input className='btn btn-secondary flex m-auto py-2 w-100 mt-3' type="submit" value="Add Profile"/>
             </form>
-            <button onClick={() => handleUpdate (user.email)} className='btn btn-primary mt-4'>Edit Profile</button>
+            <button onClick={() => handleUpdate (user.email)} className='btn btn-primary flex m-auto mt-4'>Edit Profile</button>
+        </div>
         </div>
     );
 };

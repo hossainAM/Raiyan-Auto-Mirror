@@ -38,8 +38,8 @@ const MyOrder = () => {
     return (
         <div>
             <h2 className='text-xl text-secondary font-bold my-4'>My Orders</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto w-screen lg:w-full">
+                <table className="table w-full">
                     <thead>
                     <tr>
                         <th></th>

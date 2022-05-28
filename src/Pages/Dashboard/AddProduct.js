@@ -54,7 +54,7 @@ const AddProduct = () => {
 
     return (
         <div>
-            <h2 classNameName='text-secondary text-xl font-bold'>Add a Product</h2>
+            <h2 className='text-secondary text-xl font-bold'>Add a Product</h2>
             <form onSubmit={handleAddProduct}>
                 <input ref={nameRef} type="text" placeholder="Product Name" className="input input-bordered w-full max-w-xs" name="product" autoComplete='off' required />
                 <br/>
