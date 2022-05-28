@@ -19,6 +19,7 @@ import ManageProducts from './Pages/Dashboard/ManageProducts'
 import ManageOrders from './Pages/Dashboard/ManageOrders'
 import MyPortfolio from '../src/Pages/MyPortfolio/MyPortfolio'
 import Payment from './Pages/Dashboard/Payment'
+import RequireAdmin from './Pages/Login/RequireAdmin'
 
 
 const App = () => {
@@ -33,14 +34,14 @@ const App = () => {
         <Route path='/dashboard' element={<RequireAuth>
           <Dashboard/>
         </RequireAuth>}>
-          <Route index element={<MyOrder/>}/>
+          <Route index element={<MyProfile/>}/>
           <Route path='addreview' element={<AddReview/>}/>
-          <Route path='profile' element={<MyProfile/>}/>
-          <Route path='makeadmin' element={<MakeAdmin/>}/>
-          <Route path='addproduct' element={<AddProduct/>}/>
+          <Route path='myorder' element={<MyOrder/>}/>
+          <Route path='makeadmin' element={<RequireAdmin><MakeAdmin/></RequireAdmin>}/>
+          <Route path='addproduct' element={<RequireAdmin><AddProduct/></RequireAdmin>}/>
           <Route path='payment/:id' element={<Payment/>}/>
-          <Route path='manageproduct' element={<ManageProducts/>}/>
-          <Route path='manageorder' element={<ManageOrders/>}/>
+          <Route path='manageproduct' element={<RequireAdmin><ManageProducts/></RequireAdmin>}/>
+          <Route path='manageorder' element={<RequireAdmin><ManageOrders/></RequireAdmin>}/>
         </Route>
         <Route path='/blog' element={<Blog/>}/>
         <Route path='/portfolio' element={<MyPortfolio/>}/>

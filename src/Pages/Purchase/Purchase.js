@@ -5,6 +5,7 @@ import auth from '../../firebase.init'
 import toast from 'react-hot-toast';
 
 const Purchase = () => {
+    const [quantity, setQuantity] = useState(0);
     const {id} = useParams();
     const [item, setItem] = useState({});
     const [user] = useAuthState(auth);
@@ -15,6 +16,13 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => setItem(data))
     }, [id]); 
+
+    //Order Quantity
+    // const handleChange = (e) => {
+    //     const quantity = e.target.value;
+  
+    //     setQuantity(e.target.value);
+    // }
 
     //place order
     const handleOrderSubmit = e => {
@@ -39,11 +47,10 @@ const Purchase = () => {
         })
         .then(res => res.json())
         .then(data => {
-            // console.log(data)
             if(data.success) {
                 toast('Order placed successfully!')
             }
-        });//toast is not working correctly
+        });
     }
 
     return (
@@ -73,11 +80,9 @@ const Purchase = () => {
                 <br/>
                 <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="text" name="itemName" value={item.name} placeholder='Service Name' readOnly/>
                 <br/>
-                <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="number" name="itemName" value={item.price} placeholder='Price' readOnly/>
+                <label className='text-accent font-bold text-center mt-4' htmlFor="quantity">Order Quantity</label>
                 <br/>
-                <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="number" name="price" value={item.AvailableQuantity} placeholder='Unit Price' readOnly/>
-                <br/>
-                <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="number" name="itemQuantity" placeholder={item.minimumOrderQuantity}/>
+                <input onChange={handleChange} className='shadow appearance-none border rounded w-full py-2 mt-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-100 mb-3' type="number" name="quantity" value={quantity}/>
                 <br/>
                 <div className='flex justify-center'>
                     <input className='btn btn-primary py-2 w-100 mt-3 mr-4' type="submit" value="Place Order"/>

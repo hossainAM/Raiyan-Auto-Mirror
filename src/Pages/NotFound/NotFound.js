@@ -1,9 +1,10 @@
 import React from 'react';
+import image from '../../assets/404.png'
 
 const NotFound = () => {
     return (
-        <div>
-            <h2>404, Requested page is not available</h2>
+        <div className='flex justify-center mt-8'>
+            <img src={image} alt="image" />
         </div>
     );
 };

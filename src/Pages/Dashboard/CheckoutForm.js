@@ -71,6 +71,8 @@ const CheckoutForm = ({order}) => {
             },
         );
 
+        console.log(paymentIntent);
+
         if(intentError){
             setCardError(intentError?.message)
             setProcessing(false);
@@ -83,7 +85,7 @@ const CheckoutForm = ({order}) => {
             //send updated payment info to server
             const payment = {
                 order: _id,
-                transactionId: paymentIntent.id
+                transactionId: paymentIntent.id,
             }
             fetch(`https://desolate-harbor-05396.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',

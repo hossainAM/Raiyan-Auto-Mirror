@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# Raiyan Auto Mirror
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live link: https://raiyan-auto-mirror.web.app
 
-## Available Scripts
+## Description of Riyan Auto Mirror
+Established in 1989, Raiyan Auto Mirror is an aftermarket automobile mirror company which specializing in the serial development, production and sales of auto mirror, including rear-view mirrors, modified car rear-view mirrors. Besides, KDC also provide OEM service.
+Our mission is to keep abreast of the market trends of automobile rear-view mirrors and to continue to invest in the research and development and manufacturing of rear-view mirrors. We hope to be the leader in the technology and quality of rear-view mirrors for automobiles by adhering to the business philosophy of "honesty, professionalism, and dedication".
 
-In the project directory, you can run:
+### Techs and tools used
 
-### `npm start`
+* Site contents a navbar section, header with a carousel, Featured Product, Middle Banner with industry link, statistics, reviews, contact us and footer sections in home page
+* Other pages include blogs, my portfolio, Login, dashboard; dashboard is protected route that contains user and admin panel;
+* Google Firebase is used to develop authentication system
+* Email Password auth and google sign in systems are used for this website
+* React Firebase Hooks are used to develop auth system
+* React Tailwind is used for overall styling and responsiveness of whole website
+* React Router v6 is used to set up routes
+* React hot toast is used for pop up message while password reset request is there from user
+* Tailwind daisyUI and spinner library is used;
+* JSON Web Token is used for additional security;
+* React Stripe js is used for payment transaction
+* The application is deployed on firebase
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
