@@ -35,7 +35,7 @@ const Header = () => {
                     </ul>
                     {user && <p className='text-primary font-bold'>{user.displayName}</p>}
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Raiyan Auto Mirror</a>
+                <a className="btn btn-ghost normal-case text-xl text-secondary font-bold">Raiyan Auto Mirror</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
