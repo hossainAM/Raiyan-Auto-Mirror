@@ -28,8 +28,8 @@ const ManageOrderRow = ({order, index}) => {
             <td>{price}</td>
             <td>
                 {!order.paid && <button className="btn btn-xs btn-accent">Unpaid</button>}
-                {(order.paid && !order.status) && <button onClick={handlePaymentStatus} className="btn btn-xs btn-accent">Pending</button>}
-                {(order.paid && order.status) && <p><span className="text-accent font-bold">Shipped</span></p>}
+                {(order.paid) && <button onClick={handlePaymentStatus} className="btn btn-xs btn-neutral">Pending</button>}
+                {/* {(order.paid && order.status) && <p><span className="text-accent font-bold">Shipped</span></p>} */}
             </td>
             <td>
                 {!order.paid && <button className="btn btn-xs btn-accent">Cancel</button>}

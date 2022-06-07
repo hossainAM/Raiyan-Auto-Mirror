@@ -111,11 +111,7 @@ const MyProfile = () => {
     }
 
     //get profile info from database
-    const {
-        data: profile,
-        isLoading,
-        refetch
-    } = useQuery('profile', () => fetch(`https://desolate-harbor-05396.herokuapp.com/profile/${user.email}`, {
+    const {data: profile, isLoading, refetch} = useQuery('profile', () => fetch(`https://desolate-harbor-05396.herokuapp.com/profile/${user.email}`, {
         method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

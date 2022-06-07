@@ -9,6 +9,8 @@ const AddProduct = () => {
        const quantityRef = useRef();
        const imgRef = useRef();
 
+       const imageStorageKey = '755356de0bb69c7e52c3efd877fa9a1b';
+       
     const handleAddProduct = (e) => {
         e.preventDefault();
         const name = nameRef.current.value;
@@ -16,15 +18,31 @@ const AddProduct = () => {
         const price = priceRef.current.value;
         const minimumOrderQuantity = orderRef.current.value;
         const AvailableQuantity = quantityRef.current.value;
-        const image = imgRef.current.value;
+        const image = imgRef.current.files[0];
+        console.log(image)
 
-        const newProduct = {
-            name, description, price, minimumOrderQuantity, AvailableQuantity, image,
-        }
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
 
-        //post new product to server 
-        const url = `https://desolate-harbor-05396.herokuapp.com/item`
         fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.success) {
+                const img= data.data.url;
+                 const newProduct = {
+                     name,
+                     description,
+                     price,
+                     minimumOrderQuantity,
+                     AvailableQuantity,
+                     img,
+                 }
+        //post new product to server 
+        fetch('http://localhost:5000/item', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -41,15 +59,15 @@ const AddProduct = () => {
             else{
                 toast.error('Failed to add product')
             }
-        });
-
+          });
+        }
+    })
         //Clear input filed
         nameRef.current.value='';
         descRef.current.value='';
         priceRef.current.value='';
         orderRef.current.value='';
         quantityRef.current.value='';
-        imgRef.current.value='';
     }
 
     return (
@@ -66,7 +84,7 @@ const AddProduct = () => {
                 <br/>
                 <input ref={quantityRef} type="number" placeholder="Available Quantity" className="input input-bordered w-full max-w-xs" name="availableQuantity" required />
                 <br/>
-                <input ref={imgRef} type="text" placeholder="Image URL" className="input input-bordered w-full max-w-xs" name="image" required />
+                <input ref={imgRef} type="file" placeholder="Image" className="input input-bordered w-full max-w-xs" name="files" required />
                 <br/>
                 <input className='btn btn-secondary py-2 w-100 mt-3 mr-4' type="submit" value="Add Product"/>
             </form>

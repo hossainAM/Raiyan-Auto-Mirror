@@ -1,16 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import auth from '../../firebase.init';
+import { FaStar } from 'react-icons/fa'
+import './StarRating.css'
 
 const AddReview = () => {
+    const [rating, setRating] = useState(null);
+    const [hover, setHover] = useState(null);
     const [user] = useAuthState(auth);
-    const ratingRef = useRef();
     const descRef = useRef();
 
     const handleReview = (e) => {
         e.preventDefault();
-        const rating = ratingRef.current.value;
         const comment = descRef.current.value;
 
         const addReview = {
@@ -20,7 +22,7 @@ const AddReview = () => {
             comment
         }
 
-         //post new product to server 
+         //post review to server 
         const url = `https://desolate-harbor-05396.herokuapp.com/review`
         fetch(url, {
             method: 'POST',
@@ -33,15 +35,14 @@ const AddReview = () => {
         .then(res => res.json())
         .then(data => {
             if(data.insertedId){
-                toast.success('Product added successfully');
+                toast.success('Review added successfully');
             }
             else{
-                toast.error('Failed to add product')
+                toast.error('Failed to add review')
             }
         });
 
         //Clear input filed
-        ratingRef.current.value='';
         descRef.current.value='';
     }
 
@@ -59,7 +60,23 @@ const AddReview = () => {
                     <h2 class="card-title">{user.displayName}</h2>
                 </div>
                 <form onSubmit={handleReview} action="#">
-                    <input ref={ratingRef} type="text" className='input' placeholder='Rating' />
+                    <div className='flex mb-4'>
+                    {[...Array(5)].map((star, i) => {
+                        const ratingValue = i + 1;
+                        return (
+                            <label>
+                                <input type="radio" name="rating" value={ratingValue} onClick={() => setRating(ratingValue)}/>
+                                <FaStar 
+                                    onMouseEnter={() => setHover(ratingValue)}
+                                    onMouseLeave={() => setHover(null)}
+                                    className='star' 
+                                    color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"} 
+                                    size={50}
+                                />
+                            </label>
+                        )
+                    })}
+                </div>
                     <textarea ref={descRef} className='textarea textarea-bordered w-full' name="comment" cols="30" rows="5" placeholder='Comment'></textarea>
                     <button className='button block mx-auto mt-4'>Submit</button>
                 </form>
