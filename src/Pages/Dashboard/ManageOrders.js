@@ -6,7 +6,7 @@ import ManageOrderRow from './ManageOrderRow';
 const ManageOrders = () => {
     const {
         data: orders, isLoading
-    } = useQuery('order', () => fetch('https://desolate-harbor-05396.herokuapp.com/order', {
+    } = useQuery('order', () => fetch('https://pacific-springs-08376.herokuapp.com/order', {
          method: 'GET',
              headers: {
                  'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -10,7 +10,7 @@ const ManageProducts = () => {
         data: products,
         isLoading,
         refetch,
-    } = useQuery('product', () => fetch('https://desolate-harbor-05396.herokuapp.com/item').then(res => res.json()));
+    } = useQuery('product', () => fetch('https://pacific-springs-08376.herokuapp.com/item').then(res => res.json()));
 
     if(isLoading){
         return <Loader></Loader>

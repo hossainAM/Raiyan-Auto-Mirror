@@ -12,7 +12,7 @@ const Purchase = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        const url = `https://desolate-harbor-05396.herokuapp.com/item/${id}`
+        const url = `https://pacific-springs-08376.herokuapp.com/item/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))
@@ -47,7 +47,7 @@ const Purchase = () => {
             quantity: quantity,
         }
 
-        fetch('https://desolate-harbor-05396.herokuapp.com/order', {
+        fetch('https://pacific-springs-08376.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

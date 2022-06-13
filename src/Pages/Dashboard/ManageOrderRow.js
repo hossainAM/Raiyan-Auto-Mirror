@@ -4,7 +4,7 @@ const ManageOrderRow = ({order, index}) => {
     const {_id, name, email, product, quantity, price} = order;
 
     const handlePaymentStatus = () => {
-        fetch(`https://desolate-harbor-05396.herokuapp.com/order/${_id}`, {
+        fetch(`https://pacific-springs-08376.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

@@ -50,7 +50,7 @@ const MyProfile = () => {
                      img
                  }
                 //post profile to database 
-                fetch('https://desolate-harbor-05396.herokuapp.com/profile', {
+                fetch('https://pacific-springs-08376.herokuapp.com/profile', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
@@ -78,6 +78,7 @@ const MyProfile = () => {
          linkedRef.current.value = '';
     }
 
+    //Update profile
     const handleUpdate = (email) => {
         const education = eduRef.current.value;
         const city = cityRef.current.value;
@@ -89,7 +90,7 @@ const MyProfile = () => {
             const profile = {
                 education, city, district, phone, linkedin
             }
-            fetch(`https://desolate-harbor-05396.herokuapp.com/profile/${email}`, {
+            fetch(`https://pacific-springs-08376.herokuapp.com/profile/${email}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -109,14 +110,19 @@ const MyProfile = () => {
         phoneRef.current.value='';
         linkedRef.current.value='';
     }
-
     //get profile info from database
-    const {data: profile, isLoading, refetch} = useQuery('profile', () => fetch(`https://desolate-harbor-05396.herokuapp.com/profile/${user.email}`, {
+    const {
+        data: profile,
+        isLoading,
+        refetch
+    } = useQuery('profile', () => fetch(`https://pacific-springs-08376.herokuapp.com/profile/${user?.email}`, {
         method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
     }).then(res => res.json()));
+
+    // console.log(profile)
 
     if(isLoading) {
         return <Loader></Loader>

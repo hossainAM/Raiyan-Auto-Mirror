@@ -12,7 +12,7 @@ const CheckoutForm = ({order}) => {
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(() => {
-        fetch('https://desolate-harbor-05396.herokuapp.com/create-payment-intent', {
+        fetch('https://pacific-springs-08376.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -86,7 +86,7 @@ const CheckoutForm = ({order}) => {
                 order: _id,
                 transactionId: paymentIntent.id,
             }
-            fetch(`https://desolate-harbor-05396.herokuapp.com/order/${_id}`, {
+            fetch(`https://pacific-springs-08376.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

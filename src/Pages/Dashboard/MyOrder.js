@@ -14,7 +14,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         if(user) {
-            const url = `https://desolate-harbor-05396.herokuapp.com/order?email=${user.email}`;
+            const url = `https://pacific-springs-08376.herokuapp.com/order?email=${user.email}`;
             fetch(url, {
                 method: 'GET',
                 headers: {

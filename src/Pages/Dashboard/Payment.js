@@ -14,7 +14,7 @@ const Payment = () => {
     const {
         data: order,
         isLoading
-    } = useQuery(['order', id], () => fetch(`https://desolate-harbor-05396.herokuapp.com/order/${id}`, {
+    } = useQuery(['order', id], () => fetch(`https://pacific-springs-08376.herokuapp.com/order/${id}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

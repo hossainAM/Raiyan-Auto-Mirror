@@ -8,7 +8,7 @@ const MakeAdmin = () => {
         data: users,
         isLoading,
         refetch,
-    } = useQuery('users', () => fetch('https://desolate-harbor-05396.herokuapp.com/user', {
+    } = useQuery('users', () => fetch('https://pacific-springs-08376.herokuapp.com/user', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

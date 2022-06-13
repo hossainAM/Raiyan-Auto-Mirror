@@ -23,7 +23,7 @@ const AddReview = () => {
         }
 
          //post review to server 
-        const url = `https://desolate-harbor-05396.herokuapp.com/review`
+        const url = `https://pacific-springs-08376.herokuapp.com/review`
         fetch(url, {
             method: 'POST',
             headers: {
